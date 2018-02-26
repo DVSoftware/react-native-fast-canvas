@@ -25,6 +25,7 @@ public class FastCanvasViewManager extends ViewGroupManager<FastCanvasLayout> {
     public static final int COMMAND_STROKE = 1;
     public static final int COMMAND_SET_STROKE_STYLE = 2;
     public static final int COMMAND_SET_LINE_WIDTH = 3;
+    public static final int COMMAND_SET_LINE_CAP = 4;
 
     @Override
     public String getName() {
@@ -55,7 +56,9 @@ public class FastCanvasViewManager extends ViewGroupManager<FastCanvasLayout> {
                 "setStrokeStyle",
                 COMMAND_SET_STROKE_STYLE,
                 "setLineWidth",
-                COMMAND_SET_LINE_WIDTH
+                COMMAND_SET_LINE_WIDTH,
+                "setLineCap",
+                COMMAND_SET_LINE_CAP
         );
     }
 
@@ -78,6 +81,10 @@ public class FastCanvasViewManager extends ViewGroupManager<FastCanvasLayout> {
             }
             case COMMAND_SET_LINE_WIDTH: {
                 view.setLineWidth(args.getInt(0));
+                return;
+            }
+            case COMMAND_SET_LINE_CAP: {
+                view.setLineCap(args.getString(0));
                 return;
             }
             default:

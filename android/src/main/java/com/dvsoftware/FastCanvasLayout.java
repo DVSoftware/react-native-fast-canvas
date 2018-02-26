@@ -35,4 +35,8 @@ public class FastCanvasLayout extends LinearLayout {
     public void setLineWidth(int width) {
         this.fastCanvas.setLineWidth(width);
     }
+
+    public void setLineCap(String cap) {
+        this.fastCanvas.setLineCap(cap);
+    }
 }

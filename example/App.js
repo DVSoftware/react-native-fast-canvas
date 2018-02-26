@@ -12,6 +12,8 @@ import {
   View,
 } from 'react-native';
 
+import Color from 'color';
+
 import FastCanvas from 'react-native-fast-canvas';
 
 console.log('fastcanvaslog',FastCanvas);
@@ -37,10 +39,13 @@ export default class App extends Component<Props> {
       >
         <FastCanvas
           ref={c => {
+            let hue = 0;
             setInterval(
               () => {
-                c.strokeStyle = '#FF0000';
-                c.lineWidth = 3;
+               
+               c.strokeStyle = Color('#FF0000').hue(hue % 255).hex();
+                c.lineWidth = 10;
+                c.lineCap = 'round';
                 {/* ;
                 c.beginPath();
                 c.moveTo(10, 10);
@@ -48,8 +53,9 @@ export default class App extends Component<Props> {
                 c.lineTo(20, 30); */}
                 c.lineTo(200 * Math.random()|0, 200*Math.random()|0);
                 c.stroke();
-              },1000
-            )
+                hue += 1;
+              },16
+            );
             
           }}
           style={{

@@ -25,6 +25,14 @@ class FastCanvas extends Component {
 		);
 	}
 
+	set lineCap(cap) {
+		UIManager.dispatchViewManagerCommand(
+			findNodeHandle(this),
+			UIManager.RNFastCanvas.Commands.setLineCap,
+			[cap],
+		);
+	}
+
 	beginPath() {
 		this.points = [0, 0];
 	}

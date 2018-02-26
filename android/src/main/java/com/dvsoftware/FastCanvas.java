@@ -53,5 +53,15 @@ public class FastCanvas extends View {
         this.paint.setStrokeWidth(width);
     }
 
+    public void setLineCap(String cap) {
+        if (cap.equals("round")) {
+            this.paint.setStrokeCap(Paint.Cap.ROUND);
+        } else if (cap.equals("square")) {
+            this.paint.setStrokeCap(Paint.Cap.SQUARE);
+        } else {
+            this.paint.setStrokeCap(Paint.Cap.BUTT);
+        }
+    }
+
 
 }
