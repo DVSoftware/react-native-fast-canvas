@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.LinearLayout;
 
+
+
 import com.dvsoftware.FastCanvas;
 import com.facebook.react.bridge.ReadableArray;
 
@@ -20,20 +22,23 @@ public class FastCanvasLayout extends LinearLayout {
         this.addView(this.fastCanvas);
     }
 
-    public void stroke(ReadableArray points) {
-        float[] pts = new float[points.size()];
-        for (int i = 0; i < points.size(); i++) {
-            pts[i] = points.getInt(i);
-        }
-        this.fastCanvas.stroke(pts);
+    public void lineTo(double x, double y) {
+        this.fastCanvas.lineTo(x, y);
+    }
+    public void moveTo(double x, double y) {
+        this.fastCanvas.moveTo(x, y);
+    }
+
+    public void stroke() {
+        this.fastCanvas.stroke();
     }
 
     public void setStrokeStyle(String color) {
         this.fastCanvas.setStrokeStyle(color);
     }
 
-    public void setLineWidth(int width) {
-        this.fastCanvas.setLineWidth(width);
+    public void lineWidth(double width) {
+        this.fastCanvas.lineWidth(width);
     }
 
     public void setLineCap(String cap) {

@@ -46,12 +46,13 @@ export default class App extends Component<Props> {
                c.strokeStyle = Color('#FF0000').hue(hue % 255).hex();
                 c.lineWidth = 10;
                 c.lineCap = 'round';
-                {/* ;
                 c.beginPath();
-                c.moveTo(10, 10);
+                c.moveTo(0, 100);
+                
+                {/* ;
                 c.lineTo(10, 20);
                 c.lineTo(20, 30); */}
-                c.lineTo(200 * Math.random()|0, 200*Math.random()|0);
+                c.lineTo(hue%1000,200);
                 c.stroke();
                 hue += 1;
               },16
